@@ -4,11 +4,10 @@ from ntp_depoch_common import now_dgc_epoch_ms, pack_packet, unpack_packet
 SERVER = input("NTP-DEpoch Server IP/Domain: ")
 PORT = 15432
 BUF_SIZE = 28
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.settimeout(2)
 
 while True:
-
-  sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-  sock.settimeout(2)
   
   t1 = now_dgc_epoch_ms()
   req = pack_packet(1, 3, t1, 0, 0)
