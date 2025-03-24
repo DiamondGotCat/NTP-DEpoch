@@ -1,8 +1,8 @@
 import socket
 from ntp_depoch_common import now_dgc_epoch_ms, pack_packet, unpack_packet
 
-SERVER = "127.0.0.1"
-PORT = 12345
+SERVER = input("NTP-DEpoch Server IP/Domain: ")
+PORT = 15432
 BUF_SIZE = 28
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
